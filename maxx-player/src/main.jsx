@@ -8,7 +8,13 @@ import './index.css'
 
 const router = createBrowserRouter([
   { path: '/', element: <CoverPage /> },
-  { path: '/home', element: <MainPage /> },
+  {
+    path: '/home',
+    element: <App />,          // layout shell
+    children: [
+      { index: true, element: <MainPage /> },  // renders inside <Outlet />
+    ],
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
